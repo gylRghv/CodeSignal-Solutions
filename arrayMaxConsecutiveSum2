@@ -1,0 +1,17 @@
+def arrayMaxConsecutiveSum2(arr: Array[Int]): Int = {
+
+    var currentSum: Int = 0
+    var currentMinimalSum: Int = 0
+    var result: Int = arr(0)
+
+    for( i <- 0 until arr.length) {
+      currentSum += arr(i)
+      if (currentSum - currentMinimalSum > result) {
+        result = currentSum - currentMinimalSum
+      }
+      if (currentSum < currentMinimalSum) {
+        currentMinimalSum = currentSum     
+      }
+    }
+    result
+}
